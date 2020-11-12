@@ -92,6 +92,17 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',  
+    ),
+}
+
+AUTH_USER_MODEL = 'users.User'
+DJOSER = {
+    'LOGIN_FIELD' : 'email',
+    'SERIALIZERS' : {
+        'user_create': 'users.serializer.UserRegistrationSerializer',
+    }
 }
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
