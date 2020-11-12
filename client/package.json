@@ -15,6 +15,7 @@
         "express-session": "^1.17.1",
         "node-fetch": "^2.6.1",
         "polka": "next",
+        "postcss": "^8.1.7",
         "sirv": "^1.0.0"
     },
     "devDependencies": {
