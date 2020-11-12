@@ -15,12 +15,12 @@
 	padding: 2rem;
 }
 
-h1{
-	font-size: 2rem;
+h3{
 	text-transform: uppercase; 
 }
 p {
-	opacity: .7;
+    text-align: center;
+    margin-top: 10px;
 }
 form {
 display: flex;
@@ -59,12 +59,15 @@ form input[type='submit'] {
 <section class="main">
 	<div class="wrapper">
 		
-
+        <h3>login to webmp</h3>
 		<form action="/login/" method="POST">
 			<input type="email" name="email" placeholder="Email address" required class="input-border">
 			<input type="password" name="password" placeholder="Password" required class="input-border">
 
 			<input type="submit" value="LOGIN">
 		</form>
+        <p class="s">
+			Don't have an account? <a href="/">Register</a>
+		</p>
 	</div>
 </section>

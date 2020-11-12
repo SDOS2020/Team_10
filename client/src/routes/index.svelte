@@ -20,8 +20,10 @@ h1{
 	text-transform: uppercase; 
 }
 p {
+    margin: 10px 0;
 	opacity: .7;
 }
+
 form {
 
     display: inline-flex;
@@ -29,7 +31,7 @@ form {
 }
 
 form>* {
-    margin: 10px 5px 0 0;
+    margin: 10px 5px 10px 0;
 }
 
 form .input-border {
@@ -67,5 +69,9 @@ form input[type='submit'] {
 
 			<input type="submit" value="JOIN WEBMP">
 		</form>
+
+		<p class="s">
+			Already have an account? <a href="/login">Login here</a>
+		</p>
 	</div>
 </section>

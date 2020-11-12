@@ -25,11 +25,29 @@ async function get(endpoint) {
 }
 router.post('/register/', async(req, res, next) => {
     const { first_name, email, password } = req.body;
-    const response = await post('auth/users/', { first_name, email, password })
+    const response = await post('auth/users/', { first_name, email, password });
 
-    console.log(response)
+    console.log(response);
 
+    res.redirect('/');
+})
+
+router.post('/login/', async(req, res, next) => {
+    const { email, password } = req.body;
+    const response = await post('auth/token/login/', { email, password });
+
+    if ("auth_token" in response) {
+        req.session.key = response.auth_token
+    } else {
+        // handle errors here
+    }
+    console.log(response);
     res.redirect('/')
 })
 
+router.get('/authtoken_check/', async(req, res, next) => {
+    console.log(req.session.key)
+    res.redirect('/')
+})
+router.post('/logout/')
 export default router
