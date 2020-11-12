@@ -8,11 +8,11 @@
 }
 
 .wrapper {
-	width: 80vmin;
+	width: 40vmin;
 	background: rgba(#fff, .6);
 	border-radius: 10px;
 	box-shadow: 0 0 6px rgba(#000, 0.2);
-	padding: 2rem 0rem 2rem 2rem;
+	padding: 2rem;
 }
 
 h1{
@@ -23,13 +23,12 @@ p {
 	opacity: .7;
 }
 form {
-
-    display: inline-flex;
-    // flex-direction: row;
+display: flex;
+    flex-direction: column;
 }
 
 form>* {
-    margin: 10px 5px 0 0;
+    margin: 10px;
 }
 
 form .input-border {
@@ -43,11 +42,13 @@ form .input-border {
 
 form input[type='submit'] {
     background: #333;
-    border: none;
+    border: none !important;
+    outline: none !important;
     padding: 10px 10px;
     color: #fff;
     letter-spacing: 1px;
     cursor: pointer;
+    border-radius: 5px;
 }
 </style>
 
@@ -57,15 +58,13 @@ form input[type='submit'] {
 
 <section class="main">
 	<div class="wrapper">
-		<h1>WebMP: Mentor growth</h1>
-		<p>Some small description to make people feel inspired and attracted towards the service. Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum qui itaque omnis ut ex alias ducimus.</p>
+		
 
-		<form action="/register" method="POST">
-			<input type="text" name="firstName" placeholder="First name" required class="input-border">
+		<form action="/login/" method="POST">
 			<input type="email" name="email" placeholder="Email address" required class="input-border">
 			<input type="password" name="password" placeholder="Password" required class="input-border">
 
-			<input type="submit" value="JOIN WEBMP">
+			<input type="submit" value="LOGIN">
 		</form>
 	</div>
 </section>
