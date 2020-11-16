@@ -7,8 +7,8 @@
     }
 </script>  
 <script>
-    console.log(userDetails)
     export let userDetails;
+    console.log(userDetails)
 </script>
 
 
