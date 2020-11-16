@@ -53,9 +53,18 @@ router.post('/login/', async(req, res, next) => {
 })
 
 router.get('/authtoken_check/', async(req, res, next) => {
-    console.log(req.session.key)
+    console.log(req.session.key || "lol")
     res.redirect('/')
 })
+
+router.get('/profileDetails/', async(req, res, next) => {
+    const content = {
+        name: 'raghav'
+    }
+
+    return res.json(content)
+})
+
 router.get('/logout/', async(req, res, next) => {
 
     const options = {
