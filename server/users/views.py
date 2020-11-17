@@ -11,6 +11,6 @@ class UserHandler(APIView):
     def get(self, request):
         user_token = request.user
         print(user_token.first_name)
-        return Response({"message": user_token.first_name})
+        return Response({"name": user_token.first_name})
 
 
