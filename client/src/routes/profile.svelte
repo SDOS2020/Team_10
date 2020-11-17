@@ -16,6 +16,6 @@
 </style>
 
 <section class="main">
-{userDetails.name}
+Hi <span class="name">{userDetails.name}</span> you have <span class="numProjects">2</span> projects.
 </section>
 
