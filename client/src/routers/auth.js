@@ -22,9 +22,18 @@ async function post(endpoint, data, token = "") {
 
     return json;
 }
-async function get(endpoint) {
-    const url = `${baseUrl}/${endpoint}/`
-    await fetch(url)
+async function get(endpoint, token = "") {
+    const url = `${baseUrl}${endpoint}`
+    const options = {
+
+        headers: {
+            'Authorization': 'Token: ' + token
+        }
+    }
+    const res = await fetch(url, options);
+    const json = await res.json();
+
+    return json;
 }
 
 
@@ -43,13 +52,15 @@ router.post('/login/', async(req, res, next) => {
     const response = await post('auth/token/login/', { email, password });
 
     if ("auth_token" in response) {
+        // fetch user details -> store to session
         console.log("successful login" + response.auth_token)
         req.session.key = response.auth_token
+
     } else {
         // handle errors here
     }
     console.log(response);
-    res.redirect('/')
+    res.redirect('/profile')
 })
 
 router.get('/authtoken_check/', async(req, res, next) => {
@@ -58,11 +69,15 @@ router.get('/authtoken_check/', async(req, res, next) => {
 })
 
 router.get('/profileDetails/', async(req, res, next) => {
-    const content = {
-        name: 'raghav'
-    }
-
-    return res.json(content)
+    console.log(req.session.key)
+    const response = await fetch(`${baseUrl}api/user`, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Token ${req.session.key}`
+        }
+    })
+    const json = await response.json()
+    return res.json(json)
 })
 
 router.get('/logout/', async(req, res, next) => {
