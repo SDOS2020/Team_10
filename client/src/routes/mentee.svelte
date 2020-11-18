@@ -43,6 +43,15 @@ form .input-border {
     letter-spacing: 1px;
 }
 
+form input[type='submit'] {
+    background: #333;
+    border: none;
+    padding: 10px 10px;
+    color: #fff;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
 .button {
 	background: #333;
     border: none;
@@ -50,14 +59,13 @@ form .input-border {
     color: #fff;
     letter-spacing: 1px;
     cursor: pointer;
-    width: 60px;
     position: relative;
-    left: 600px;
+    left: 510px;
 }
 </style>
 
 <svelte:head>
-	<title>Profile</title>
+	<title>Mentee</title>
 </svelte:head>
 
 <script context="module">
@@ -75,11 +83,15 @@ form .input-border {
 
 <section class="main">
 	<div class="wrapper">
-		<h1>Profile Details</h1>
+		<h1>Mentee</h1>
 		<p><span class="name">{userDetails.name}</span></p>
 
-		<form action="/editProfileDetails" method="POST">
-			<button class="button" type="submit" formmethod="POST">EDIT</button>
+		<form action="/acceptMentee" method="POST">
+			<input type="submit" value="ACCEPT">
+		</form>
+
+		<form action="/nextMentee" method="POST">
+			<button class="button" type="submit" formmethod="POST">NEXT</button>
 		</form>
 		
 		
