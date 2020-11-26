@@ -78,7 +78,7 @@ form .input-border {
 		<h1>Profile Details</h1>
 		<p><span class="name">{userDetails.name}</span></p>
 
-		<form action="/editProfileDetails" method="POST">
+		<form action="/editprofile" method="POST">
 			<button class="button" type="submit" formmethod="POST">EDIT</button>
 		</form>
 		

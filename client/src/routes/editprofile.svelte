@@ -60,7 +60,7 @@ form input[type='submit'] {
 	<div class="wrapper">
 		
         <h3>edit profile</h3>
-		<form action="/saveProfile/" method="POST">
+		<form action="/save_profile/" method="POST">
 			<input type="name" name="name" placeholder="Name" required class="input-border">
 			<input type="location" name="location" placeholder="City" required class="input-border">
 			<input type="college" name="college" placeholder="College Name" required class="input-border">

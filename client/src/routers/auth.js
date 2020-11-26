@@ -63,6 +63,12 @@ router.post('/login/', async(req, res, next) => {
     res.redirect('/profile')
 })
 
+router.post('/save_profile/', async(req, res, next) => {
+    const { name, location, college, mm} = req.body;
+    
+})
+
+
 router.get('/authtoken_check/', async(req, res, next) => {
     console.log(req.session.key || "lol")
     res.redirect('/')
@@ -93,4 +99,5 @@ router.get('/logout/', async(req, res, next) => {
     req.session.destroy()
     res.redirect('/login/')
 })
+
 export default router
