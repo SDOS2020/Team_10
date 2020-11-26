@@ -63,7 +63,7 @@ form input[type='submit'] {
 		<p>Some small description to make people feel inspired and attracted towards the service. Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum qui itaque omnis ut ex alias ducimus.</p>
 
 		<form action="/register" method="POST">
-			<input type="text" name="firstName" placeholder="First name" required class="input-border">
+			<input type="text" name="first_name" placeholder="First name" required class="input-border">
 			<input type="email" name="email" placeholder="Email address" required class="input-border">
 			<input type="password" name="password" placeholder="Password" required class="input-border">
 

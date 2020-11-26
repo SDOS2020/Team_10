@@ -23,7 +23,7 @@ p {
     margin-top: 10px;
 }
 form {
-display: flex;
+    display: flex;
     flex-direction: column;
 }
 
