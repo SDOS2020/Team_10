@@ -33,6 +33,11 @@ mentor chooses mentee_list
 
 - project
     - type: textual/code
+    - name
+    - description
+    - link 
+    - grade
+    - progress
 
 
 - login/signup 
@@ -50,3 +55,13 @@ mentor chooses mentee_list
 TODO: 
 - ask for initial requirements
 - 
+
+
+
+/profile
+ - edit
+
+/class -nivedit
+
+/class/projects (mentee) (mentor) - vidit
+ - create project form

@@ -70,6 +70,7 @@ router.get('/authtoken_check/', async(req, res, next) => {
 
 router.get('/profileDetails/', async(req, res, next) => {
     console.log(req.session.key)
+
     const response = await fetch(`${baseUrl}api/user`, {
         method: 'GET',
         headers: {
