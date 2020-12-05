@@ -1,6 +1,6 @@
 <script>
-    import Sidebar from '/home/tilloo/Desktop/Team_6/client/src/components/Sidebar.svelte'
-    import Newsfeed from '/home/tilloo/Desktop/Team_6/client/src/components/Newsfeed.svelte'
+    import Sidebar from '../../components/Sidebar.svelte'
+    import Newsfeed from '../../components/Newsfeed.svelte'
 
 </script>
 
