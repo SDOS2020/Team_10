@@ -44,6 +44,7 @@ p {
 }
 
 
+
 .btn {
   border: none;
   background-color: #000;
@@ -69,7 +70,7 @@ input[type="text"] {
 
 
 .sidebar {
-	height: 350px;
+	height: 500px;
 	width: 325px;
 
 	position: fixed;
@@ -95,6 +96,30 @@ input[type="text"] {
 .sidebar a:hover {
   color: #000;
 }
+* {
+  box-sizing: border-box;
+	}
+
+	/* Create two unequal columns that floats next to each other */
+	.column {
+	  float: left;
+	  padding: 10px;
+	}
+
+	.left {
+	  width: 80%;
+	}
+
+	.right {
+	  width: 20%;
+	}
+
+	/* Clear floats after the columns */
+	.row:after {
+	  content: "";
+	  display: table;
+	  clear: both;
+	}
 
 </style>
 
@@ -102,14 +127,30 @@ input[type="text"] {
 	<title>WebMP : Class</title>
 </svelte:head>
 
+
+<script>
+	import Gcomp from './Gcomp.svelte'
+</script>
+
+	
+
+
+
 <section class="main">
 	<div class="wrapper">
-	   <form>
-        <input type="text" class="text-box" placeholder="Share something with the class!">
-        <input type="submit" class="btn" value="Post">
-     </form>
+		<div class="row">
+		  <div class="column left">
+		  	<h2> Projects </h2>
+		  </div>
+		  <div class="column right">
+		  	<h2>Grades</h2>
+		  </div>
+		</div>
+	   
 
-
+	   <Gcomp/>
+	   <Gcomp/>
+	   <Gcomp/>
 
 
 
@@ -118,9 +159,11 @@ input[type="text"] {
 
 
 <div class="sidebar">
+	<a href="/profile">Profile</a>
+
 	<a href="">Resources</a>
 	<a href="">Project</a>
-	<a href="">Grades</a>
+	<a href="/grades" style="color:#000;">Grades</a>
 
 
 </div>

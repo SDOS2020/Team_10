@@ -12,5 +12,13 @@ class UserHandler(APIView):
         user_token = request.user
         print(user_token.first_name)
         return Response({"name": user_token.first_name})
+    
 
+
+class ProjectHandler(APIView):
+    authentication_classes = [authentication.TokenAuthentication]
+
+    def post(self, request):
+        name = request.body.name
+        return Response({})
 

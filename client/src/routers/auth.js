@@ -63,6 +63,12 @@ router.post('/login/', async(req, res, next) => {
     res.redirect('/profile')
 })
 
+router.post('/formtest/', async(req, res, next) => {
+    const { projectname, projecttext } = req.body;
+    console.log(projectname);
+    console.log(projecttext);
+})
+
 router.get('/authtoken_check/', async(req, res, next) => {
     console.log(req.session.key || "lol")
     res.redirect('/')
@@ -70,6 +76,7 @@ router.get('/authtoken_check/', async(req, res, next) => {
 
 router.get('/profileDetails/', async(req, res, next) => {
     console.log(req.session.key)
+
     const response = await fetch(`${baseUrl}api/user`, {
         method: 'GET',
         headers: {
