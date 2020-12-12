@@ -5,7 +5,7 @@
         position: fixed;
         z-index: 1;
         left: 40%;
-        background-color: #fff;
+        
 
  
     }
@@ -22,10 +22,13 @@
         display: block;
         padding: 10px 10px;
         border: 1px solid #999;
+        border-radius: 5px;
+        box-shadow: 1px 1px #888888;
         background: #fff;
         font-size: 14px;
         font-family: var(--font-default);
         letter-spacing: 1px;
+
         
         
     }

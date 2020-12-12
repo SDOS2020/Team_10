@@ -1,6 +1,7 @@
 <script>
     import Sidebar from '../../components/Sidebar.svelte'
     import Newsfeed from '../../components/Newsfeed.svelte'
+    import Post from '../../components/Post.svelte'
 
 </script>
 
@@ -14,6 +15,7 @@
 
     <Sidebar />
     <Newsfeed />
+    <Post />
     
   
     

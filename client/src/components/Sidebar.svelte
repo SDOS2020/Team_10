@@ -38,7 +38,7 @@
 </style>
 
 <div class="sidenav">
-    <img src="https://d3ao8sz5crj5i0.cloudfront.net/heinrich-hoffmann-hitler-nazi-party-rally-10.jpg" alt="oops">
+    <img src="https://i2.wp.com/www.geoawesomeness.com/wp-content/uploads/2017/09/Coding-Geospatial.jpg?resize=1152%2C768&ssl=1" alt="oops">
 
     <h1>Classroom Heading</h1>
 
