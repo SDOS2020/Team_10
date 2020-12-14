@@ -129,7 +129,6 @@ input[type="text"] {
 
 
 <script>
-	import Gcomp from './Gcomp.svelte'
 </script>
 
 	
@@ -139,19 +138,13 @@ input[type="text"] {
 <section class="main">
 	<div class="wrapper">
 		<div class="row">
-		  <div class="column left">
-		  	<h2> Projects </h2>
-		  </div>
-		  <div class="column right">
-		  	<h2>Grades</h2>
-		  </div>
+		<div class="column left">
+			<h2> Projects </h2>
 		</div>
-	   
-
-	   <Gcomp/>
-	   <Gcomp/>
-	   <Gcomp/>
-
+		<div class="column right">
+			<h2>Grades</h2>
+		</div>
+		</div>
 
 
 	</div>

@@ -1,19 +1,18 @@
 import express from 'express'
 import fetch from 'node-fetch'
-
+import { authCheck } from '../utils/user'
 const router = express.Router()
 
 const baseUrl = 'http://localhost:8000/'
 
 async function post(endpoint, data, token = "") {
     const url = `${baseUrl}${endpoint}`
-
     const options = {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Token: ' + token
+            'Authorization': 'Token ' + token
         }
     }
 
@@ -22,12 +21,29 @@ async function post(endpoint, data, token = "") {
 
     return json;
 }
+
+async function noAuthPost(endpoint, data, token = "") {
+    const url = `${baseUrl}${endpoint}`
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    const res = await fetch(url, options)
+    const json = await res.json();
+
+    return json;
+}
+
 async function get(endpoint, token = "") {
     const url = `${baseUrl}${endpoint}`
     const options = {
 
         headers: {
-            'Authorization': 'Token: ' + token
+            'Authorization': 'Token ' + token
         }
     }
     const res = await fetch(url, options);
@@ -40,7 +56,7 @@ async function get(endpoint, token = "") {
 
 router.post('/register/', async(req, res, next) => {
     const { first_name, email, password } = req.body;
-    const response = await post('auth/users/', { first_name, email, password });
+    const response = await noAuthPost('auth/users/', { first_name, email, password });
 
     console.log(response);
 
@@ -49,11 +65,12 @@ router.post('/register/', async(req, res, next) => {
 
 router.post('/login/', async(req, res, next) => {
     const { email, password } = req.body;
-    const response = await post('auth/token/login/', { email, password });
+    const response = await noAuthPost('auth/token/login/', { email, password });
 
     if ("auth_token" in response) {
         // fetch user details -> store to session
         console.log("successful login" + response.auth_token)
+
         req.session.key = response.auth_token
 
     } else {
@@ -99,5 +116,13 @@ router.get('/logout/', async(req, res, next) => {
 
     req.session.destroy()
     res.redirect('/login/')
+})
+
+
+router.post('/completeProfile/', async(req, res, next) => {
+    const response = await post('api/user/complete', req.body, req.session.key)
+
+    console.log(response)
+    res.redirect('/profile/complete')
 })
 export default router

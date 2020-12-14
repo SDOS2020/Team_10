@@ -33,6 +33,7 @@ app.use(sapper.middleware({
         const sessionObj = {
             email: req.session.email,
             key: req.session.key,
+
         }
         req.session.error = undefined
         return sessionObj
