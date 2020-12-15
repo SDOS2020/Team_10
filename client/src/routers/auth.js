@@ -77,7 +77,7 @@ router.post('/login/', async(req, res, next) => {
         // handle errors here
     }
     console.log(response);
-    res.redirect('/profile')
+    res.redirect('/mentoring/apply/')
 })
 
 router.post('/formtest/', async(req, res, next) => {

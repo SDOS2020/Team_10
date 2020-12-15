@@ -1,0 +1,44 @@
+import express from 'express'
+import fetch from 'node-fetch'
+import { authCheck } from '../utils/user'
+const router = express.Router()
+
+const baseUrl = 'http://localhost:8000/'
+
+async function post(endpoint, data, token = "") {
+    const url = `${baseUrl}${endpoint}`
+    const options = {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Token ' + token
+        }
+    }
+
+    const res = await fetch(url, options)
+    const json = await res.json();
+
+    return json;
+}
+
+async function get(endpoint, token = "") {
+    const url = `${baseUrl}${endpoint}`
+    const options = {
+
+        headers: {
+            'Authorization': 'Token ' + token
+        }
+    }
+    const res = await fetch(url, options);
+    const json = await res.json();
+
+    return json;
+}
+
+router.post('/applyMentor/', async(req, res, next) => {
+    console.log(req.body)
+    res.redirect('/profile')
+})
+
+export default router;

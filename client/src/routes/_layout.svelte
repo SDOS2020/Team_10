@@ -7,8 +7,9 @@
 	@import "../styles/global.scss";
 </style>
 
-<Nav />
 
+
+<Nav />
 <main>
 	<slot></slot>
 </main>
