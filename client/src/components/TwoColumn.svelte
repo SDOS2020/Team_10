@@ -1,13 +1,15 @@
 <style lang="scss">
 .main {
-	position: absolute;
-	width: 70%;
-	left: 50%;
-	top:40%;
-	transform: translate(-50%, -40%);
+	position: relative;
+    width: 70%;
+	// left: 50%;
+    // transform: translateX(-50%);
+    margin: 0 auto;
 }
 
 .wrapper {
+    position: relative;
+    top: 10vmin;
 	border-radius: 5px;
 	// box-shadow: 0 0 6px rgba(#000, 0.07);
 	padding: 2rem 0rem 2rem 2rem;

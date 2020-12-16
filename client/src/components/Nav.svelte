@@ -2,12 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
 nav {
     position: fixed;
+    top: 0;
     width: 100%;
     background: #15171B;
     box-shadow: 0 0 5px rgba(#000, .1);
-    left: 50%;
+    // left: 50%;
     // top: 80%;
-    transform: translateX(-50%);
+    // transform: translateX(-50%);
     z-index: 1000;
     padding: 2rem 2rem;
     text-align: center;
@@ -39,6 +40,7 @@ nav {
         }
     }
 }
+
 </style>
 
 <nav>
