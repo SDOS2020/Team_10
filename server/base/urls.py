@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from users.views import UserHandler, UserCompleteProfile
+from users.views import UserHandler, UserCompleteProfile,MentorCreation
 from project.views import ProjectHandler
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,5 +23,6 @@ urlpatterns = [
     path('auth/', include('djoser.urls.authtoken')),
     path('api/user/', UserHandler.as_view()),
     path('api/project/', ProjectHandler.as_view()),
-    path('api/user/complete', UserCompleteProfile.as_view())
+    path('api/user/complete/', UserCompleteProfile.as_view()),
+    path('api/mentor/apply/', MentorCreation.as_view())
 ]

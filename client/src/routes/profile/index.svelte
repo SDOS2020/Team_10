@@ -1,19 +1,4 @@
 <style lang="scss">
-.main {
-	position: absolute;
-	left: 50%;
-
-	top: 50%;
-	transform: translate(-50%, -50%);
-}
-
-.wrapper {
-	width: 80vmin;
-    background: rgba(#15171B, 1);
-	border-radius: 5px;
-	box-shadow: 0 0 6px rgba(#000, 0.07);
-	padding: 2rem 0rem 2rem 2rem;
-}
 
 h1{
 	font-size: 2rem;
@@ -51,83 +36,31 @@ form>* {
     font-size: 1rem;
     opacity: .8;
     margin-bottom: 20px; 
+
+}
+
+.badges {
+    float: left;
+    margin-bottom: 1em;
 }
 .badge {
     font-size: .6rem;
     text-transform: uppercase;
     padding:3px 10px;
     border-radius: 50px;
-    color: #808080;
+    color: #fff;
+    display: inline-block;
+
 }
 
 .qualification {
-    background: #2ecc71;
+    background: lighten(#467E84, 5%);
 }
 
 .user_type {
-    background: #808080;
-}
-$spacing: 1rem;
-$themeColor: #63B8FF;
-$backColor: #ddd;
-$textShadow: rgba(black, 0.35) 1px 1px 1px;
-.progress--circle {
-    position: relative;
-    display: inline-block;
-    margin: $spacing;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background-color: $backColor;
-        &:before {
-        content: '';
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        width: 90px;
-        height: 90px;
-        border-radius: 50%;
-        background-color: white;
-    }
-    &:after {
-        content: '';
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%; 
-        background-color: $themeColor;
-    }
+    background: #73645D;
 }
 
-.progress__number {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    line-height: 1;
-    margin-top: -0.75rem;
-    text-align: center;
-    font-size: 1.5rem;
-    color: #777;
-}
-$step: 5;
-$loops: round(100 / $step);
-$increment: 360 / $loops;
-$half: round($loops / 2);
-@for $i from 0 through $loops {
-    .progress--bar.progress--#{$i * $step}:after {
-        width: $i * $step * 1%;
-    }
-    .progress--circle.progress--#{$i * $step}:after {
-        @if $i < $half {
-            $nextDeg: 90deg + ($increment * $i);
-            background-image: linear-gradient(90deg, $backColor 50%, transparent 50%, transparent), linear-gradient($nextDeg, $themeColor 50%, $backColor 50%, $backColor);
-        }
-        @else {
-            $nextDeg: -90deg + ($increment * ($i - $half));
-            background-image: linear-gradient($nextDeg, $themeColor 50%, transparent 50%, transparent), linear-gradient(270deg, $themeColor 50%, $backColor 50%, $backColor);
-        }
-    }
-}
 </style>
 
 <svelte:head>
@@ -137,13 +70,16 @@ $half: round($loops / 2);
 <script context="module">
     import { authCheck } from '../../utils/user';
     export async function preload(page, session) {
-        authCheck(session, this.redirect);
+        // authCheck(session, this.redirect);
         const res = await this.fetch(`profileDetails/`);
         const userDetails = await res.json();
         return { userDetails };
     }
 </script>  
 <script>
+    import Card from '../../components/Card.svelte';
+    import TwoColumn from '../../components/TwoColumn.svelte';
+    
     export let userDetails;
     let profileComplete = false;
     let user_type = 'Mentee';
@@ -152,11 +88,26 @@ $half: round($loops / 2);
     }
     if (userDetails.user_type==='MT' && userDetails.organization!=='' && userDetails.requirement!=='') {
         profileComplete = true;
-    } 
+    }
+
+    let today = new Date()
+    let curHr = today.getHours()
+    let greeting = ''
+
+    if (curHr < 12) {
+        greeting = 'good morning'
+    } else if (curHr < 18) {
+        greeting = 'good afternoon'
+    } else {
+        greeting = 'good evening'
+    }
+
+    
+
     console.log(userDetails)
 </script>
 
-<section class="main">
+<!-- <section class="main">
 	<div class="wrapper">
 		<h1>Hi, {userDetails.first_name} 
         </h1>
@@ -181,4 +132,26 @@ $half: round($loops / 2);
 		
 		
 	</div>
-</section>
+</section> -->
+
+
+
+    <TwoColumn>
+        <div slot="left">
+                <Card data="34" title="Number of mentees"  subtext="Mentee details" link="Some text" styleNumber="one"/>
+                <Card data="3" title="Current classes"  subtext="Manage classes" link="Some text" styleNumber="two"/>
+                <Card data="19" title="Active projects"  subtext="Review projects" link="Some text" styleNumber="three"/>
+            </div>
+            <div class="upcoming"></div>
+        
+        <div slot="right">
+            <h1>{greeting}, {userDetails.first_name}</h1>
+            <div class="badges">
+                <div class="badge qualification">{userDetails.qualification}</div>
+                <div class="badge user_type">{user_type}</div>
+            </div>
+            
+        </div>
+    </TwoColumn>
+        
+<!-- instant announcement -->

@@ -54,16 +54,23 @@ form .input-border {
     color: #fff;
     font-family: $font-default;
     letter-spacing: 1px;
+    transition: all .13s ease-in-out;
     border-radius: 5px;
+}
+
+form .input-border:focus {
+    border: 1px solid #D6CCC1;
 }
 
 form input[type='submit'] {
     background: #D6CCC1;
     border: none !important;
     padding: 10px 10px;
-    color: #000;
+    color: #0F1013;
+    font-size: 0.8rem;
     font-family: $font-heading;
-    letter-spacing: 1px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
     cursor: pointer;
     border-radius: 5px;
 }

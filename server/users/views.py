@@ -32,4 +32,21 @@ class UserCompleteProfile(APIView):
         user.save()
         return Response({'data': user.first_name})
 
+class MentorCreation(APIView):
+    authentication_classes = [authentication.TokenAuthentication]
+
+    def post(self, request):
+        user = request.user
+        data = json.loads(request.body)
+        for attr, value in data.items():
+            print(attr,value)
+            setattr(user, attr, value)
+        
+        user.user_type = 'MR'
+
+        user.save()
+        print(data)
+        return Response({'data' : 200})
+
+
 

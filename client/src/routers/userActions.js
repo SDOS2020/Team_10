@@ -38,7 +38,10 @@ async function get(endpoint, token = "") {
 
 router.post('/applyMentor/', async(req, res, next) => {
     console.log(req.body)
-    res.redirect('/profile')
+    const response = await post('api/mentor/apply/', req.body, req.session.key)
+
+    console.log(response)
+    res.redirect('/mentoring/apply/')
 })
 
 export default router;

@@ -1,4 +1,5 @@
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
 nav {
     position: fixed;
     width: 100%;
@@ -9,9 +10,13 @@ nav {
     transform: translateX(-50%);
     z-index: 1000;
     padding: 2rem 2rem;
-
+    text-align: center;
+    .logo {
+        display: none;
+        font: 1.2em 'Playfair Display';
+        float: left;
+    }
     ul {
-        float: right;
         li {
             margin-right: 1rem;
             list-style-type: none;
@@ -37,9 +42,12 @@ nav {
 </style>
 
 <nav>
+<div class="logo">
+    <a href="/">WebMentor</a>
+</div>
 <ul>
     <li><a href="/">Home</a></li>
-    <li><a href="/classes">Classes</a></li>
+    <li><a href="/class">Classes</a></li>
     <li><a href="/knowledge">StudyBase</a></li>
     <li><a href="/profile">Profile</a></li>
     <li><a href="/logout">Logout</a></li>
