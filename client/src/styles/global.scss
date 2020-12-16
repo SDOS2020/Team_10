@@ -101,3 +101,22 @@ a:hover {
         color: #111;
     }
 }
+
+.button-secondary {
+    background: #333;
+    color: #fff;
+}
+
+.button-primary {
+    background: #333;
+    color: #fff;
+}
+
+.button {
+    border: none;
+    padding: 10px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
+    font-size: .8rem;
+}

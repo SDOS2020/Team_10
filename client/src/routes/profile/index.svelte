@@ -20,17 +20,7 @@ form>* {
 }
 
 
-.button {
-	background: #333;
-    border: none;
-    padding: 10px 10px;
-    color: #fff;
-    letter-spacing: 1px;
-    cursor: pointer;
-    width: 60px;
-    position: relative;
-    font-size: .8rem;
-}
+
 
 .sub {
     font-size: 1rem;
@@ -41,6 +31,7 @@ form>* {
 
 .badges {
     float: left;
+    width: 100%;
     margin-bottom: 1em;
 }
 .badge {
@@ -138,9 +129,9 @@ form>* {
 
     <TwoColumn>
         <div slot="left">
-                <Card data="34" title="Number of mentees"  subtext="Mentee details" link="Some text" styleNumber="one"/>
-                <Card data="3" title="Current classes"  subtext="Manage classes" link="Some text" styleNumber="two"/>
-                <Card data="19" title="Active projects"  subtext="Review projects" link="Some text" styleNumber="three"/>
+                    <Card data="34" title="Number of mentees"  subtext="Mentee details" link="Some text" styleNumber="one"/>
+                    <Card data="3" title="Current classes"  subtext="Manage classes" link="Some text" styleNumber="two"/>
+                    <Card data="19" title="Active projects"  subtext="Review projects" link="Some text" styleNumber="three"/>
             </div>
             <div class="upcoming"></div>
         
@@ -150,7 +141,20 @@ form>* {
                 <div class="badge qualification">{userDetails.qualification}</div>
                 <div class="badge user_type">{user_type}</div>
             </div>
-            
+
+            {#if profileComplete}
+            <a class="button button-secondary" href="/profile/edit/">EDIT PROFILE</a>
+            {:else}
+            <div class="incomplete">
+                <p class="sub">
+                    Your profile seems to be incomplete, choose any of the two options below to continue...
+                </p>
+
+                <a class="button button-secondary" href="/mentoring/apply">APPLY FOR MENTOR</a>
+                <a class="button button-secondary" href="/profile/complete/">COMPLETE PROFILE</a>
+                </div>
+            {/if}
+		
         </div>
     </TwoColumn>
         
