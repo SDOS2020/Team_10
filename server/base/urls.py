@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from users.views import UserHandler, UserCompleteProfile,MentorCreation
+from users.views import UserHandler, UserCompleteProfile,MentorCreation, MentorMatching
 from project.views import ProjectHandler
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +24,6 @@ urlpatterns = [
     path('api/user/', UserHandler.as_view()),
     path('api/project/', ProjectHandler.as_view()),
     path('api/user/complete/', UserCompleteProfile.as_view()),
-    path('api/mentor/apply/', MentorCreation.as_view())
+    path('api/mentor/apply/', MentorCreation.as_view()),
+    path('api/mentor/matches/', MentorMatching.as_view())
 ]

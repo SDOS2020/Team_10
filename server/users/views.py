@@ -50,3 +50,15 @@ class MentorCreation(APIView):
 
 
 
+class MentorMatching(APIView):
+    authentication_classes = [authentication.TokenAuthentication]
+
+    def calculate_similar(user):
+        duration = user.duration
+        requirement = user.requirement
+        
+        return "random"
+    
+    def get(self, request):
+        user = request.user
+        recommendations = calculate_similar(user)

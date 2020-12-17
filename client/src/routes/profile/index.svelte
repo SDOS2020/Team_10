@@ -51,7 +51,12 @@ form>* {
 .user_type {
     background: #73645D;
 }
+.action-mini_wrapper {
 
+    width: 100%;
+    // padding: 1rem;
+    margin-top: 1rem;
+}
 </style>
 
 <svelte:head>
@@ -70,7 +75,8 @@ form>* {
 <script>
     import Card from '../../components/Card.svelte';
     import TwoColumn from '../../components/TwoColumn.svelte';
-    
+    import ActionMini from '../../components/ActionMini.svelte';
+
     export let userDetails;
     let profileComplete = false;
     let user_type = 'Mentee';
@@ -98,43 +104,21 @@ form>* {
     console.log(userDetails)
 </script>
 
-<!-- <section class="main">
-	<div class="wrapper">
-		<h1>Hi, {userDetails.first_name} 
-        </h1>
-            <span class="badge qualification">{userDetails.qualification}</span>
-            <span class="badge user_type">{user_type}</span>
-
-            {#if profileComplete}
-                <div class="progress--circle progress--25">
-                    <div class="progress__number">25%</div>
-                </div>
-
-                <button class="button">EDIT</button>
-            {:else}
-                <p class="sub">
-                    Your profile seems to be incomplete, choose any of the two options below to continue...
-                </p>
-
-                <a class="button" href="/mentoring/apply">APPLY FOR MENTOR</a>
-                <a class="button" href="/profile/complete/">COMPLETE PROFILE</a>
-                
-            {/if}
-		
-		
-	</div>
-</section> -->
 
 
 
     <TwoColumn>
         <div slot="left">
+
                     <Card data="34" title="Number of mentees"  subtext="Mentee details" link="Some text" styleNumber="one"/>
                     <Card data="3" title="Current classes"  subtext="Manage classes" link="Some text" styleNumber="two"/>
                     <Card data="19" title="Active projects"  subtext="Review projects" link="Some text" styleNumber="three"/>
-            </div>
-            <div class="upcoming"></div>
-        
+                <div class="action-mini_wrapper">
+                    <ActionMini link="" icon="book-read-streamline" label="Add Resources" />
+                    <ActionMini link="" icon="folder-add" label="Create Project" />
+                    <ActionMini link="" icon="users" label="View Mentors" />
+                </div>
+        </div>
         <div slot="right">
             <h1>{greeting}, {userDetails.last_name}</h1>
             <div class="badges">
