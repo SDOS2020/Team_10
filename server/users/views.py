@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import authentication, permissions
 from .serializer import UserSerializer
+from .models import User
 import json
 class UserHandler(APIView):
     authentication_classes = [authentication.TokenAuthentication]
@@ -56,9 +57,14 @@ class MentorMatching(APIView):
     def calculate_similar(user):
         duration = user.duration
         requirement = user.requirement
+        mentors =  User.objects.filter(user_type="MR")
+
+        print(mentors)
         
         return "random"
     
     def get(self, request):
         user = request.user
         recommendations = calculate_similar(user)
+
+        return Response({'data': recommendations})
