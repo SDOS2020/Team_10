@@ -94,13 +94,14 @@ form>* {
     <TwoColumn>
         <div slot="left">
 
-                    <Card title="Class Name"  subtext="Class details" link="Some text" styleNumber="one" twocol={false}/>
+                    <Card title="Class Name"  subtext="Class details" link="Some text" styleNumber="one" ispost={false}/>
                    
         </div>
-        <div ref = "childClass" slot="right">
-        	{#each postDetails as post}
-        		<card title={post.user_name} subtext={post.details} link={post.link} styleNumber="two" twocol={false} />
-        	{/each}
+        
+<div ref = "childClass" slot="right">
+            {#each postDetails as post}
+                <card title={post.user_name} subtext={post.details} link={post.link} styleNumber="two" ispost={false} />
+            {/each}
         </div>
     </TwoColumn>
         

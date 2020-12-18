@@ -55,11 +55,11 @@
 </style>    
 
 <script>
-    export let title,  subtext, link, styleNumber, data, twocol = true;
+    export let title,  subtext, link, styleNumber, data, ispost = true;
 </script>
 
 <a href="{link}">
-    {#if twocol}
+    {#if ispost}
     <section class="card style-{styleNumber}">
         <div class="left">
             <span class="data">{data}</span>
