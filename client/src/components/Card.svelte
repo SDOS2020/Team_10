@@ -55,10 +55,11 @@
 </style>    
 
 <script>
-    export let title,  subtext, link, styleNumber, data;
+    export let title,  subtext, link, styleNumber, data, twocol = true;
 </script>
 
 <a href="{link}">
+    {#if twocol}
     <section class="card style-{styleNumber}">
         <div class="left">
             <span class="data">{data}</span>
@@ -71,4 +72,18 @@
             
         </div>
     </section>
+    {:else}
+    <section class="card style-{styleNumber}">
+        <div class="left">
+            <h1 class="title">{title}</h1>
+        </div>
+        <div class="right">
+                    
+            <h3 class="subtext">
+                {subtext}
+            </h3>
+            
+        </div>
+    </section>
+    {/if}
 </a>

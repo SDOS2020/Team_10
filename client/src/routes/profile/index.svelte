@@ -57,6 +57,11 @@ form>* {
     // padding: 1rem;
     margin-top: 1rem;
 }
+
+:global([ref=childClass]) {
+    background: rgba(#15171b, 1);
+    padding: 2rem 1rem;
+  }
 </style>
 
 <svelte:head>
@@ -76,6 +81,9 @@ form>* {
     import Card from '../../components/Card.svelte';
     import TwoColumn from '../../components/TwoColumn.svelte';
     import ActionMini from '../../components/ActionMini.svelte';
+    import AddClass from '../../components/AddClass.svelte'
+    import PopUpForm from '../../components/PopUpForm.svelte'
+    import Modal from '../../components/Modal.svelte'
 
     export let userDetails;
     let profileComplete = false;
@@ -115,11 +123,16 @@ form>* {
                     <Card data="19" title="Active projects"  subtext="Review projects" link="Some text" styleNumber="three"/>
                 <div class="action-mini_wrapper">
                     <ActionMini link="" icon="book-read-streamline" label="Add Resources" />
-                    <ActionMini link="" icon="folder-add" label="Create Project" />
+                    <Modal>
+                        <PopUpForm icon="folder-add" label="Create Project" />
+                    </Modal>
                     <ActionMini link="" icon="users" label="View Mentors" />
+                    <Modal>
+                        <AddClass icon="users" label="Create New Class" />
+                    </Modal>
                 </div>
         </div>
-        <div slot="right">
+        <div ref = "childClass" slot="right">
             <h1>{greeting}, {userDetails.last_name}</h1>
             <div class="badges">
                 <div class="badge qualification">{userDetails.qualification}</div>

@@ -48,7 +48,7 @@
   import { getContext } from 'svelte';
 	import { fly } from 'svelte/transition';
 	
-	import Dialog from './Dialog.svelte';
+	import ClassDialog from './ClassDialog.svelte';
 	import CloseButton from './CloseButton.svelte';
 
   const { open } = getContext('simple-modal');
@@ -59,9 +59,10 @@
 	let closed = false;
 
 	export let link, icon, label;
-
-	let project_name;
-	let project_text;
+  
+	let class_name;
+	let class_text;
+	let class_topics;
 	let status = 0;
 	
 	const onCancel = (text) => {
@@ -69,18 +70,19 @@
 		status = -1;
 	}
 	
-	const onOkay = (name, text) => {
-		project_name = name;
-		project_text = text;
+	const onOkay = (name, text, topic) => {
+		class_name = name;
+		class_text = text;
+		class_topics = topic;
 		console.log(text)
 		status = 1;
 	}
 
   const showDialog = () => {
 		open(
-			Dialog,
+			ClassDialog,
 			{
-				message: "Enter Project Details",
+				message: "Enter Class Details",
 				hasForm: true,
 				onCancel,
 				onOkay

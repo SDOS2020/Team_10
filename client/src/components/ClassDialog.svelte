@@ -8,8 +8,9 @@
   const { close } = getContext('simple-modal');
 	
 	let value;
-	let project_name;
-	let project_text;
+	let class_name;
+	let class_text;
+	let class_topics;
 	let onChange = () => {};
 	
 	function _onCancel() {
@@ -18,7 +19,7 @@
 	}
 	
 	function _onOkay() {
-		onOkay(project_name, project_text);
+		onOkay(class_name, class_text, class_topics);
 		close();
 	}
 	
@@ -30,7 +31,6 @@
 		font-size: 2rem;
 		text-align: center;
 		color: #D6CCC1;
-
 	}
 	
 	input {
@@ -78,9 +78,10 @@
     type="text"
 	  bind:value
 	  on:keydown={e => e.which === 13 && _onOkay()} /> -->
-	  <form action="/formtest/" method="POST">
-		  <input type="ProjectName" bind:value={project_name} name="projectname" placeholder="Project Name" required class="input-border">
-		  <input type="ProjectText" bind:value={project_text} name="projecttext" placeholder="Project Description" required class="input-border">
+	  <form action="/classformtest/" method="POST">
+		  <input type="ClassName" bind:value={class_name} name="classname" placeholder="Class Name" required class="input-border">
+		  <input type="ClassText" bind:value={class_text} name="classtext" placeholder="Class Description" required class="input-border">
+		  <input type="ClassTopics" bind:value={class_topics} name="classtopics" placeholder="Class Topics" required class="input-border">
 		  <div class="buttons">
 		<button on:click={_onCancel}>
 			Cancel

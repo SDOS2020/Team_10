@@ -86,6 +86,13 @@ router.post('/formtest/', async(req, res, next) => {
     console.log(projecttext);
 })
 
+router.post('/classformtest/', async(req, res, next) => {
+    const { classname, classtext, classtopics } = req.body;
+    console.log(classname);
+    console.log(classtext);
+    console.log(classtopics);
+})
+
 router.get('/authtoken_check/', async(req, res, next) => {
     console.log(req.session.key || "lol")
     res.redirect('/')

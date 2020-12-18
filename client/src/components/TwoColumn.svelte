@@ -23,15 +23,14 @@
 .right {
     float: left;
     width: 75%;
-    background: rgba(#15171b, 1);
-    padding: 2rem 1rem;
+    
 
 }
 
 </style>
 
 <script>
-
+    export let ref;
 </script>
 
 
@@ -40,7 +39,7 @@
         <div class="left">
             <slot name="left"></slot>
         </div>
-        <div class="right">
+        <div class="right {ref}">
             <slot name="right"></slot>
         </div>
     </section>
