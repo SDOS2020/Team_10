@@ -79,8 +79,7 @@ form>* {
     import Card from '../../components/Card.svelte';
     import TwoColumn from '../../components/TwoColumn.svelte';
     import ActionMini from '../../components/ActionMini.svelte';
-    import AddClass from '../../components/AddClass.svelte'
-    import PopUpForm from '../../components/PopUpForm.svelte'
+    import AddPost from '../../components/AddPost.svelte'
     import Modal from '../../components/Modal.svelte'
 
     export let postDetails;
@@ -95,7 +94,12 @@ form>* {
         <div slot="left">
 
                     <Card title="Class Name"  subtext="Class details" link="Some text" styleNumber="one" ispost={false}/>
-                   
+                   <div class="action-mini_wrapper">
+                    <Modal>
+                        <AddPost icon="users" label="Create New Post" />
+                    </Modal>
+                    <ActionMini link="" icon="book-read-streamline" label="Add Resources" />
+                </div>
         </div>
         
 <div ref = "childClass" slot="right">
