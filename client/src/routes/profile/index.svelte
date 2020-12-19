@@ -133,7 +133,7 @@ form>* {
                 </div>
         </div>
         <div ref = "childClass" slot="right">
-            <h1>{greeting}, {userDetails.last_name}</h1>
+            <h1>{greeting}, {userDetails.first_name}</h1>
             <div class="badges">
                 <div class="badge qualification">{userDetails.qualification}</div>
                 <div class="badge user_type">{user_type}</div>
