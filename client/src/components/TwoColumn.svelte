@@ -6,6 +6,11 @@
     // transform: translateX(-50%);
     margin: 0 auto;
 }
+@media screen and (max-width:1280px) {
+    .main {
+        width: 90%;
+    }
+}
 
 .wrapper {
     position: relative;
@@ -25,6 +30,18 @@
     width: 75%;
     
 
+}
+
+
+@media screen and (max-width:780px) {
+    .left, .right{
+        float: none;
+        width: 90%;
+    }
+
+    .left {
+        width: 50%;
+    }
 }
 
 </style>

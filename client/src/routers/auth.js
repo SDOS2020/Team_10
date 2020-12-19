@@ -108,6 +108,7 @@ router.get('/profileDetails/', async(req, res, next) => {
         }
     })
     const json = await response.json()
+    req.session.mentor_recs = json.mentorData
     return res.json(json)
 })
 
@@ -127,9 +128,9 @@ router.get('/logout/', async(req, res, next) => {
 
 
 router.post('/completeProfile/', async(req, res, next) => {
-    const response = await post('api/user/complete', req.body, req.session.key)
+    const response = await post('api/user/complete/', req.body, req.session.key)
 
     console.log(response)
-    res.redirect('/profile/complete')
+    res.redirect('/profile/')
 })
 export default router

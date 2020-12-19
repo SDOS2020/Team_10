@@ -58,10 +58,6 @@ form>* {
     margin-top: 1rem;
 }
 
-:global([ref=childClass]) {
-    background: rgba(#15171b, 1);
-    padding: 2rem 1rem;
-  }
 </style>
 
 <svelte:head>
@@ -75,6 +71,7 @@ form>* {
         const res = await this.fetch(`profileDetails/`);
         const userDetails = await res.json();
         return { userDetails };
+
     }
 </script>  
 <script>
@@ -94,7 +91,9 @@ form>* {
     if (userDetails.user_type==='MT' && userDetails.organization!=='' && userDetails.requirement!=='') {
         profileComplete = true;
     }
-
+    if (userDetails.user_type ==='MR') {
+        profileComplete = true;
+    }
     let today = new Date()
     let curHr = today.getHours()
     let greeting = ''

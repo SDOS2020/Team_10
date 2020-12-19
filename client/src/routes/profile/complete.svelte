@@ -41,7 +41,7 @@ form>* {
 	<div class="wrapper">
 		<h1>Complete your profile.</h1>
 
-		<form action="/completeProfile" method="POST">
+		<form action="/completeProfile/" method="POST">
             <input type="text" name="last_name" placeholder="Last name" required class="input-border" value="">
 			<div class="input-group">
                 <label for="duration">Time learning/working under a mentor (hrs)</label>
