@@ -36,6 +36,7 @@ app.use(sapper.middleware({
         const sessionObj = {
             email: req.session.email,
             key: req.session.key,
+            mentor_recs: req.session.mentor_recs,
 
         }
         req.session.error = undefined
