@@ -42,31 +42,31 @@ nav {
 }
 
 li.dropdown {
-  display: inline-block;
+    display: inline-block;
 }
 
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #15171B;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+    display: none;
+    position: absolute;
+    background-color: #15171B;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
 }
 
 .dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-  color: #D6CCC1;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    color: #D6CCC1;
 }
 
 .dropdown-content a:hover {background-color: #15171B;}
 
 .dropdown:hover .dropdown-content {
-  display: block;
+    display: block;
 }
 
 </style>
@@ -107,7 +107,7 @@ li.dropdown {
     <li class="dropdown"><a class="dropbtn">Classes</a>
         <div class="dropdown-content">
     {#each classList as c}
-      <a href={c.link}>{c.name}</a>
+        <a href={c.link}>{c.name}</a>
     {/each}
     </div>
     </li>

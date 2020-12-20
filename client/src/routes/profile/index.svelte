@@ -64,8 +64,11 @@ form>* {
 }
 
 .container {
-    padding-top: 1rem;
+    margin-top: 1.5rem;
     width: 100%;
+    h1 {
+        font-size: 1.5rem;
+    }
 }
 
 .container2 {
@@ -178,7 +181,7 @@ form>* {
         </div>
         {#if profileComplete}
             <div class="container">
-
+            <h1>Your mentor recommendations</h1>
                 {#each mentorData as mentor}
                         <div class="container2">
                         <Match first_name={mentor.first_name} last_name={mentor.last_name} time={mentor.duration} qualification={mentor.qualification} organization={mentor.organization} areas={mentor.requirements} styleNumber="two" ind=0/>
