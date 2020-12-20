@@ -58,6 +58,15 @@
         right: 5px;
     }
 
+    .choose2 {
+        /*position:relative;
+        left: 70%;
+        margin-top:50%;*/
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+    }
+
 
     
 </style>    
@@ -66,7 +75,7 @@
     export let first_name = "John", last_name = "Doe", time = 0, qualification = "PhD", organization = "IIITD", areas = "ML, DL", styleNumber, id;
 </script>
 
-<a href="">
+<a href="/">
     <section class="card style-{styleNumber}">
         <h1>Mentor</h1>
         <span class="title">{first_name} {last_name}</span>
@@ -75,7 +84,8 @@
             Organization: {organization}<br>
             Areas of Expertise: {areas}<br>
             Time Available for Mentoring: {time} hrs/week<br>
+        <a class = "button button-secondary choose2" href = "/">Join Class</a> 
 
-        <a class = "button button-secondary choose" href = "">APPLY FOR Mentor</a> 
+        <a class = "button button-secondary choose" href = "/">APPLY FOR Mentor</a> 
     </section>
 </a>

@@ -76,7 +76,8 @@ form>* {
 </script>
 
     <ThreeColumn>
-        <div slot="left">
+        
+        <!-- <div slot="left">
             <Match first_name={userDetails[0].first_name} last_name={userDetails[0].last_name} time={userDetails[0].duration} qualification={userDetails[0].qualification} organization={userDetails[0].organization} areas={userDetails[0].requirements} styleNumber="two" ind=0/>
             </div>
         <div slot="middle">
@@ -84,5 +85,5 @@ form>* {
         </div>
         <div slot="right">
             <Match first_name={userDetails[2].first_name} last_name={userDetails[2].last_name} time={userDetails[2].duration} qualification={userDetails[2].qualification} organization={userDetails[2].organization} areas={userDetails[2].requirements} styleNumber="two" ind=2/>		
-        </div>
+        </div> -->
     </ThreeColumn>

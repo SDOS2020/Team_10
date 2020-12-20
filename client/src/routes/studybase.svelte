@@ -66,7 +66,7 @@ form>* {
 	<title>Profile</title>
 </svelte:head>
 
-<script context="module">
+<!-- <script context="module">
     import { authCheck } from '../../utils/user';
     export async function preload(page, session) {
         // authCheck(session, this.redirect);
@@ -74,14 +74,14 @@ form>* {
         const postDetails = await res.json();
         return { postDetails };
     }
-</script>  
+</script>   -->
 <script>
-    import Card from '../../components/Card.svelte';
-    import TwoColumn from '../../components/TwoColumn.svelte';
-    import ActionMini from '../../components/ActionMini.svelte';
-    import AddPost from '../../components/AddPost.svelte'
-    import Modal from '../../components/Modal.svelte'
-    import Project from '../../components/Project.svelte'
+    import Card from '../components/Card.svelte';
+    import TwoColumn from '../components/TwoColumn.svelte';
+    import ActionMini from '../components/ActionMini.svelte';
+    import AddPost from '../components/AddPost.svelte'
+    import Modal from '../components/Modal.svelte'
+    import PopUpForm from '../components/PopUpForm.svelte'
 
 
     export let postDetails;
@@ -95,10 +95,10 @@ form>* {
     <TwoColumn>
         <div slot="left">
 
-                    <Card title="Class Name"  subtext="Class details" link="Some text" styleNumber="one" ispost={false}/>
+                    <Card title="Resources"  subtext="" link="Some text" styleNumber="one" ispost={false}/>
                    <div class="action-mini_wrapper">
                     <Modal>
-                        <AddPost icon="users" label="Create New Post" />
+                        <PopUpForm icon="folder-add" label="Create Project" />
                     </Modal>
                     <ActionMini link="" icon="book-read-streamline" label="Add Resources" />
                 </div>
@@ -106,8 +106,7 @@ form>* {
         
 <div ref = "childClass" slot="right">
             <!-- {#each postDetails as post} -->
-                <Card title="user name" subtext="post text" link="" styleNumber="two" ispost={false} acc={true}/>
-
+                <Card title="Resource Name" subtext="Resource Description" link="" styleNumber="two" ispost={false} />
             <!-- {/each} -->
         </div>
     </TwoColumn>

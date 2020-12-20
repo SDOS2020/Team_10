@@ -58,10 +58,23 @@ form>* {
     margin-top: 1rem;
 }
 
-:global([ref=childClass]) {
-    background: rgba(#15171b, 1);
-    padding: 2rem 1rem;
-  }
+.greet {
+   background: rgba(#15171b, 1);
+    padding: 2rem 1rem; 
+}
+
+.container {
+    padding-top: 1rem;
+    width: 100%;
+}
+
+.container2 {
+    float: left;
+    display: inline-block;
+    vertical-align: top;
+    width: 33%;
+
+}
 </style>
 
 <svelte:head>
@@ -75,6 +88,7 @@ form>* {
         const res = await this.fetch(`profileDetails/`);
         const userDetails = await res.json();
         return { userDetails };
+
     }
 </script>  
 <script>
@@ -84,8 +98,11 @@ form>* {
     import AddClass from '../../components/AddClass.svelte'
     import PopUpForm from '../../components/PopUpForm.svelte'
     import Modal from '../../components/Modal.svelte'
+    import Match from '../../components/Match.svelte'
 
-    export let userDetails;
+    export let userDetails, mentorData;
+    mentorData = userDetails.mentorData;
+
     let profileComplete = false;
     let user_type = 'Mentee';
     if (userDetails.user_type === 'MR') {
@@ -94,7 +111,9 @@ form>* {
     if (userDetails.user_type==='MT' && userDetails.organization!=='' && userDetails.requirement!=='') {
         profileComplete = true;
     }
-
+    if (userDetails.user_type ==='MR') {
+        profileComplete = true;
+    }
     let today = new Date()
     let curHr = today.getHours()
     let greeting = ''
@@ -110,6 +129,7 @@ form>* {
     
 
     console.log(userDetails)
+    console.log(mentorData)
 </script>
 
 
@@ -132,7 +152,8 @@ form>* {
                     </Modal>
                 </div>
         </div>
-        <div ref = "childClass" slot="right">
+        <div slot="right">
+            <div class="greet">
             <h1>{greeting}, {userDetails.first_name}</h1>
             <div class="badges">
                 <div class="badge qualification">{userDetails.qualification}</div>
@@ -141,6 +162,7 @@ form>* {
 
             {#if profileComplete}
             <a class="button button-secondary" href="/profile/edit/">EDIT PROFILE</a>
+            
             {:else}
             <div class="incomplete">
                 <p class="sub">
@@ -150,7 +172,23 @@ form>* {
                 <a class="button button-secondary" href="/mentoring/apply">APPLY FOR MENTOR</a>
                 <a class="button button-secondary" href="/profile/complete/">COMPLETE PROFILE</a>
                 </div>
+
+
             {/if}
+        </div>
+        {#if profileComplete}
+            <div class="container">
+
+                {#each mentorData as mentor}
+                        <div class="container2">
+                        <Match first_name={mentor.first_name} last_name="Doe" time={mentor.duration} qualification={mentor.qualification} organization={mentor.organization} areas={mentor.requirements} styleNumber="two" ind=0/>
+                        </div>
+                {/each}
+            </div>
+
+
+
+        {/if}
 		
         </div>
     </TwoColumn>
