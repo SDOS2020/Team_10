@@ -45,7 +45,7 @@ router.post('/applyMentor/', async(req, res, next) => {
 })
 
 router.post('/createClass/', async(req, res, next) => {
-    const response = await post('api/class/create/', req.body, req.session.key)
+    const response = await post('api/class/', req.body, req.session.key)
     console.log(response)
     const uuid = 'index'
     res.redirect(`/class/${uuid}.svelte`)

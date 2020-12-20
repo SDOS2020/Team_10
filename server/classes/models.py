@@ -16,10 +16,12 @@ class Class(models.Model):
 
 class Post(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, editable=False)
+    post_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='post_by', null=True, blank=True)
+    in_class = models.ForeignKey(Class, on_delete=models.CASCADE, related_name='in_class', null=True, blank=True)
     post_text = models.TextField()
     comments = models.TextField()
 
 class Comment(models.Model):
-    parent = models.ForeignKey(User, on_delete=models.CASCADE, related_name='parent', null=True, blank=True)
-    by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='by', null=True, blank=True)
+    parent = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='parent', null=True, blank=True)
+    comment_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comment_by', null=True, blank=True)
     comment_text = models.TextField(default="")
