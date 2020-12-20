@@ -58,7 +58,7 @@ form>* {
 
 :global([ref=childClass]) {
     background: #0F1013;
-  }
+}
 
 </style>
 
@@ -94,7 +94,7 @@ form>* {
         <div slot="left">
 
                     <Card title="Class Name"  subtext="Class details" link="Some text" styleNumber="one" ispost={false}/>
-                   <div class="action-mini_wrapper">
+                <div class="action-mini_wrapper">
                     <Modal>
                         <AddPost icon="users" label="Create New Post" />
                     </Modal>
@@ -102,7 +102,7 @@ form>* {
                 </div>
         </div>
         
-<div ref = "childClass" slot="right">
+        <div ref = "childClass" slot="right">
             <!-- {#each postDetails as post} -->
                 <Card title="user name" subtext="post text" link="" styleNumber="two" ispost={false} />
             <!-- {/each} -->

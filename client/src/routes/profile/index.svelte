@@ -58,6 +58,11 @@ form>* {
     margin-top: 1rem;
 }
 
+:global([ref=childClass]) {
+    background: rgba(#15171b, 1);
+    padding: 2rem 1rem;
+    border-radius: 5px;
+}
 </style>
 
 <svelte:head>
@@ -132,6 +137,7 @@ form>* {
                 </div>
         </div>
         <div ref = "childClass" slot="right">
+            
             <h1>{greeting}, {userDetails.first_name}</h1>
             <div class="badges">
                 <div class="badge qualification">{userDetails.qualification}</div>
@@ -140,6 +146,10 @@ form>* {
 
             {#if profileComplete}
             <a class="button button-secondary" href="/profile/edit/">EDIT PROFILE</a>
+
+            {#each userDetails.mentorData as mentor}
+                {mentor}
+            {/each}
             {:else}
             <div class="incomplete">
                 <p class="sub">
