@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'djoser',
     'users.apps.UsersConfig',
     'project.apps.ProjectConfig',
-    'class.apps.ClassConfig'
+    'classes.apps.ClassesConfig'
 ]
 
 MIDDLEWARE = [

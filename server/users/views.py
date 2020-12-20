@@ -13,7 +13,7 @@ class UserHandler(APIView):
     def calculate_similar(self, user):
         mentors = User.objects.filter(user_type="MR").values('id', 'first_name', 'last_name', 'qualification', 'organization', 'requirement', 'duration')
 
-        recommendations = {}
+        recommendations = []
 
         for obj in mentors:
             mentor_score = 0
@@ -36,7 +36,7 @@ class UserHandler(APIView):
             else:
                 mentor_score += 1
             
-            recommendations[obj['id']] = {
+            recommendations.append({ 'id': obj['id'],
                                         'first_name': obj['first_name'],
                                         'last_name': obj['last_name'],
                                         'qualification': obj['qualification'],
@@ -44,7 +44,7 @@ class UserHandler(APIView):
                                         'requirement': obj['requirement'],
                                         'duration': obj['duration'],
                                         'score': mentor_score,
-                                        }
+                                        })
                                     
         
         print(recommendations)

@@ -9,7 +9,9 @@ class Class(models.Model):
     mentees = models.TextField(default="{}")
     posts = models.TextField(default="{}")
     projects = models.TextField(default="{}")
-
+    title = models.CharField(max_length=1024, default="")
+    description = models.CharField(max_length=1024, default="")
+    tags = models.CharField(max_length=1024, default="")
 
 
 class Post(models.Model):

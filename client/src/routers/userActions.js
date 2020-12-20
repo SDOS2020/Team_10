@@ -44,4 +44,10 @@ router.post('/applyMentor/', async(req, res, next) => {
     res.redirect('/mentoring/apply/')
 })
 
+router.post('/createClass/', async(req, res, next) => {
+    const response = await post('api/class/create/', req.body, req.session.key)
+    console.log(response)
+    const uuid = 'index'
+    res.redirect(`/class/${uuid}.svelte`)
+})
 export default router;

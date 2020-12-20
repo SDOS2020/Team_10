@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from users.views import UserHandler, UserCompleteProfile,MentorCreation, MentorMatching
 from project.views import ProjectHandler
+from classes.views import ClassHandler
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('djoser.urls')),
@@ -25,5 +26,8 @@ urlpatterns = [
     path('api/project/', ProjectHandler.as_view()),
     path('api/user/complete/', UserCompleteProfile.as_view()),
     path('api/mentor/apply/', MentorCreation.as_view()),
-    path('api/mentor/matches/', MentorMatching.as_view())
+    path('api/mentor/matches/', MentorMatching.as_view()),
+    # path('api/class/', Class.as_view()),
+    path('api/class/create/', ClassHandler.as_view()),
+    
 ]

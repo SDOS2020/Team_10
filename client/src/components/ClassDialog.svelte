@@ -78,10 +78,10 @@
     type="text"
 	  bind:value
 	  on:keydown={e => e.which === 13 && _onOkay()} /> -->
-	  <form action="/classformtest/" method="POST">
-		  <input type="ClassName" bind:value={class_name} name="classname" placeholder="Class Name" required class="input-border">
-		  <input type="ClassText" bind:value={class_text} name="classtext" placeholder="Class Description" required class="input-border">
-		  <input type="ClassTopics" bind:value={class_topics} name="classtopics" placeholder="Class Topics" required class="input-border">
+	  <form action="/createClass/" method="POST">
+		  <input type="ClassName" bind:value={class_name} name="className" placeholder="Class Name" required class="input-border">
+		  <input type="ClassText" bind:value={class_text} name="classText" placeholder="Class Description" required class="input-border">
+		  <input type="ClassTopics" bind:value={class_topics} name="classTopics" placeholder="Class Topics" required class="input-border">
 		  <div class="buttons">
 		<button on:click={_onCancel}>
 			Cancel

@@ -48,7 +48,7 @@
   import { getContext } from 'svelte';
 	import { fly } from 'svelte/transition';
 	
-	import PostDialog from './PostDialog.svelte';
+	import PostDialog from './ClassDialog.svelte';
 	import CloseButton from './CloseButton.svelte';
 
   const { open } = getContext('simple-modal');

@@ -41,7 +41,62 @@ nav {
     }
 }
 
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #15171B;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  color: #D6CCC1;
+}
+
+.dropdown-content a:hover {background-color: #15171B;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 </style>
+
+<!-- <script context="module">
+    import { authCheck } from '../../utils/user';
+    export async function preload(page, session) {
+        // authCheck(session, this.redirect);
+        const res = await this.fetch(`classList/`);
+        const classList = await res.json();
+        return { classList };
+
+    }
+</script>  -->
+<script>
+    export let classList = [
+        {
+            name: "Class 1",
+            link: "class"
+        },
+        {
+            name: "Class 2",
+            link: "class"
+        },
+        {
+            name: "Class 3",
+            link: "class"
+        }
+    ]
+</script>
 
 <nav>
 <div class="logo">
@@ -49,8 +104,14 @@ nav {
 </div>
 <ul>
     <li><a href="/">Home</a></li>
-    <li><a href="/class">Classes</a></li>
-    <li><a href="/knowledge">StudyBase</a></li>
+    <li class="dropdown"><a class="dropbtn">Classes</a>
+        <div class="dropdown-content">
+    {#each classList as c}
+      <a href={c.link}>{c.name}</a>
+    {/each}
+    </div>
+    </li>
+    <li><a href="/studybase">StudyBase</a></li>
     <li><a href="/profile">Profile</a></li>
     <li><a href="/logout">Logout</a></li>
 </ul>
