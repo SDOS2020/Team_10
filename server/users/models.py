@@ -13,7 +13,7 @@ class User(AbstractUser):
     ]
     duration = models.CharField(max_length=2, default='3')
     qualification = models.CharField(
-        max_length=10, 
+        max_length=40, 
         blank=True, 
         default="Student"
     )
@@ -21,7 +21,8 @@ class User(AbstractUser):
     user_type = models.CharField(
         max_length=2,
         blank=True,
-        default='MT'
+        default='MT',
+        choices=USER_TYPES
     )
 
     organization = models.CharField(
@@ -34,8 +35,19 @@ class User(AbstractUser):
         blank=True, 
         default=""
     )
-    
+    classes = models.CharField(
+        max_length=8096,
+        blank=True,
+        default=""
+    )
+    interests = models.CharField(
+        max_length=8096,
+        blank=True,
+        default=""
+    )
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name']
 
     objects = CustomUserManager()
+
+

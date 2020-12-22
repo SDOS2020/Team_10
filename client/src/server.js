@@ -5,6 +5,7 @@ import session from 'express-session'
 import * as sapper from '@sapper/server';
 
 import authRoutes from './routers/auth'
+import userRoutes from './routers/userActions'
 
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
@@ -25,7 +26,9 @@ app.use(bodyParser.json())
 
 
 app.use(express.static('static'))
+
 app.use('/', authRoutes)
+app.use('/', userRoutes)
 
 app.use(sapper.middleware({
     session: (req, res) => {
@@ -33,6 +36,8 @@ app.use(sapper.middleware({
         const sessionObj = {
             email: req.session.email,
             key: req.session.key,
+            mentor_recs: req.session.mentor_recs,
+
         }
         req.session.error = undefined
         return sessionObj

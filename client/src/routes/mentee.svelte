@@ -9,9 +9,9 @@
 
 .wrapper {
 	width: 80vmin;
-	background: rgba(#fff, .6);
-	border-radius: 10px;
-	box-shadow: 0 0 6px rgba(#000, 0.2);
+	background: rgba(#15171B, 1);
+	
+	box-shadow: 0 0 6px rgba(#000, 0.07);
 	padding: 2rem 0rem 2rem 2rem;
 }
 
@@ -36,9 +36,10 @@ form>* {
 
 form .input-border {
     padding: 10px 10px;
-    border: 1px solid #999;
-    background: #fff;
+    border: 1px solid #f20c40;
+    background: transparent;
     font-size: 14px;
+    color: #fff;
     font-family: var(--font-default);
     letter-spacing: 1px;
 }

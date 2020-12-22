@@ -151,7 +151,7 @@
     margin: 2rem auto;
     color: black;
     border-radius: 0.5rem;
-    background: white;
+    background: #0F1013;;
   }
 
   .content {

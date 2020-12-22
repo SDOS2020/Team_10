@@ -15,11 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from users.views import UserHandler, ProjectHandler
+from users.views import UserHandler, UserCompleteProfile,MentorCreation, MentorMatching
+from project.views import ProjectHandler
+from classes.views import ClassHandler, ClassById, PostHandler
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.authtoken')),
     path('api/user/', UserHandler.as_view()),
-    path('api/project/', ProjectHandler.as_view())
+    path('api/project/', ProjectHandler.as_view()),
+    path('api/user/complete/', UserCompleteProfile.as_view()),
+    path('api/mentor/apply/', MentorCreation.as_view()),
+    path('api/mentor/matches/', MentorMatching.as_view()),
+    # path('api/class/', Class.as_view()),
+    path('api/class/', ClassHandler.as_view()),
+    path('api/class/id/', ClassById.as_view()),
+    path('api/class/post/', PostHandler.as_view()),
 ]

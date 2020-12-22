@@ -29,6 +29,8 @@
   h2 {
 		font-size: 2rem;
 		text-align: center;
+		color: #D6CCC1;
+
 	}
 	
 	input {
@@ -58,7 +60,7 @@
 	form .input-border {
     padding: 10px 10px;
     border: 1px solid #999;
-    background: #fff;
+    background: #15171b;
     font-size: 14px;
     font-family: var(--font-default);
     letter-spacing: 1px;

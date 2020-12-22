@@ -15,7 +15,7 @@ body,
 }
 
 body {
-    background: url(/dot-grid.png);
+    background: #0F1013;
 }
 
 * {
@@ -35,10 +35,88 @@ h4 {
 
 p {
     font-size: 1rem;
-    color: #202020;
     line-height: 1.33333;
 }
 
 p.s {
+    font-size: .8rem;
+}
+
+input {
+    outline: none;
+}
+
+form .input-border {
+    padding: 10px 10px;
+    border: 1px solid rgba(#777, 0.5);
+    background: transparent;
+    font-size: 14px;
+    color: #fff;
+    font-family: $font-default;
+    letter-spacing: 1px;
+    transition: all .13s ease-in-out;
+    border-radius: 5px;
+}
+
+form .input-border:focus {
+    border: 1px solid #D6CCC1;
+}
+
+form input[type='submit'] {
+    background: #D6CCC1;
+    border: none !important;
+    padding: 10px 10px;
+    color: #0F1013;
+    font-size: 0.8rem;
+    font-family: $font-heading;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+a {
+    color: #e6e6e6;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.input-group {
+    label {
+        font-size: .8rem;
+        width: 100%;
+    }
+    input {
+        margin-top: 5px;
+        width: 100%;
+    }
+    select {
+        margin-top: 5px;
+        width: 100%;
+    }
+    select:active {
+        color: #111;
+    }
+}
+
+.button-secondary {
+    background: #333;
+    color: #fff;
+}
+
+.button-primary {
+    background: #333;
+    color: #fff;
+}
+
+.button {
+    border: none;
+    padding: 10px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
     font-size: .8rem;
 }

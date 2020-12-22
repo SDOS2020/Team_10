@@ -11,9 +11,9 @@
 
 	width: 120vmin;
   height: 95vmin;
-	background: rgba(#fff, .6);
-	border-radius: 10px;
-	box-shadow: 0 0 6px rgba(#000, 0.2);
+	background: rgba(#15171B, 1);
+	
+	box-shadow: 0 0 6px rgba(#000, 0.07);
 	padding: 2rem 0rem 2rem 2rem;
 }
 
@@ -76,9 +76,9 @@ input[type="text"] {
 	position: fixed;
 	left: 50px;
 	top: 175px;
-	background: rgba(#fff, .6);
-	border-radius: 10px;
-	box-shadow: 0 0 6px rgba(#000, 0.2);
+	background: rgba(#15171B, 1);
+	
+	box-shadow: 0 0 6px rgba(#000, 0.07);
 	z-index: 1;
 
 
@@ -129,7 +129,6 @@ input[type="text"] {
 
 
 <script>
-	import Gcomp from './Gcomp.svelte'
 </script>
 
 	
@@ -139,19 +138,13 @@ input[type="text"] {
 <section class="main">
 	<div class="wrapper">
 		<div class="row">
-		  <div class="column left">
-		  	<h2> Projects </h2>
-		  </div>
-		  <div class="column right">
-		  	<h2>Grades</h2>
-		  </div>
+		<div class="column left">
+			<h2> Projects </h2>
 		</div>
-	   
-
-	   <Gcomp/>
-	   <Gcomp/>
-	   <Gcomp/>
-
+		<div class="column right">
+			<h2>Grades</h2>
+		</div>
+		</div>
 
 
 	</div>
