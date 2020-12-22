@@ -5,6 +5,8 @@ from rest_framework.response import Response
 from rest_framework import authentication, permissions
 from .serializer import UserSerializer
 from .models import User
+from classes.models import Class, Post, Comment
+
 import json
 from ast import literal_eval
 class UserHandler(APIView):
@@ -53,12 +55,13 @@ class UserHandler(APIView):
     def get(self, request):
         user = request.user
         print(user.first_name, user.email, user.duration, user.qualification, user.user_type, user.organization, user.requirement, user.classes)
-
-
+        classes = Class.objects.filter(mentor_id=user.id).values()
+        print("classes")
+        print(classes)
         mentors = self.calculate_similar(user)
 
         return Response({
-            'first_name': user.first_name, 'email': user.email, 'duration': user.duration, 'qualification': user.qualification, 'user_type': user.user_type,'organization':  user.organization, 'requirement': user.requirement, 'classes': user.classes, 'mentorData': mentors 
+            'first_name': user.first_name, 'email': user.email, 'duration': user.duration, 'qualification': user.qualification, 'user_type': user.user_type,'organization':  user.organization, 'requirement': user.requirement, 'classes': classes, 'mentorData': mentors 
         })
 
 

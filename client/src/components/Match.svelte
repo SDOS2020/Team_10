@@ -1,7 +1,7 @@
 
 <style lang="scss">
     .card {
-        padding: 1.5rem 1rem 3rem 1rem;
+        pwadding: 1.5rem 1rem 3rem 1rem;
         border-radius: 10px;
         margin-bottom: 10px;
         background: #15171b;

@@ -82,20 +82,21 @@ li.dropdown {
     }
 </script>  -->
 <script>
-    export let classList = [
-        {
-            name: "Class 1",
-            link: "class"
-        },
-        {
-            name: "Class 2",
-            link: "class"
-        },
-        {
-            name: "Class 3",
-            link: "class"
-        }
-    ]
+    // export let classList = [
+    //     {
+    //         name: "Class 1",
+    //         uuid: "class"
+    //     },
+    //     {
+    //         name: "Class 2",
+    //         uuid: "class"
+    //     },
+    //     {
+    //         name: "Class 3",
+    //         uuid: "class"
+    //     }
+    // ]
+    export let classList = [];
 </script>
 
 <nav>
@@ -107,7 +108,7 @@ li.dropdown {
     <li class="dropdown"><a class="dropbtn">Classes</a>
         <div class="dropdown-content">
     {#each classList as c}
-        <a href={c.link}>{c.name}</a>
+        <a href='/class/{c.uuid}.svelte'>{c.name}</a>
     {/each}
     </div>
     </li>

@@ -102,6 +102,8 @@ form>* {
     import PopUpForm from '../../components/PopUpForm.svelte'
     import Modal from '../../components/Modal.svelte'
     import Match from '../../components/Match.svelte'
+    import Nav from '../../components/Nav.svelte'
+
 
     export let userDetails, mentorData;
     mentorData = userDetails.mentorData;
@@ -129,12 +131,24 @@ form>* {
         greeting = 'good evening'
     }
 
+    export let classList = []
+    let i;
+    for (i = 0; i < userDetails.classes.length; i ++){
+        classList.push({
+            name: userDetails.classes[i].title,
+            uuid: userDetails.classes[i].uuid
+        })
+    }
+
     
 
-    console.log(userDetails)
-    console.log(mentorData)
+    // console.log(userDetails)
+    // console.log("ud above")
+    // console.log(mentorData)
+    // console.log(classList)
 </script>
 
+<Nav classList = {classList}/>
 
 
 

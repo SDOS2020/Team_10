@@ -66,38 +66,38 @@
     export let title,  subtext, link, styleNumber, data, ispost = true, acc = false;
     import { slide } from 'svelte/transition';
     let visible = true;
-    export let sections = [
-        {
-            id: 1,
-            title: "Section 1",
-            content: ["comment 1", "comment 2", "comment 3"],
-            active: false,
-        },
-        {
-            id: 2,
-            title: "Section 2",
-            content: ["comment 1"],
-            active: false,
-        },
-        {
-            id: 3,
-            title: "Section 3",
-            content: ["comment 1"],
-            active: false,
-        }
-    ]
+    // export let sections = [
+    //     {
+    //         id: 1,
+    //         title: "Section 1",
+    //         content: ["comment 1", "comment 2", "comment 3"],
+    //         active: false,
+    //     },
+    //     {
+    //         id: 2,
+    //         title: "Section 2",
+    //         content: ["comment 1"],
+    //         active: false,
+    //     },
+    //     {
+    //         id: 3,
+    //         title: "Section 3",
+    //         content: ["comment 1"],
+    //         active: false,
+    //     }
+    // ]
     
-    const expand = (section) => {
-        sections = sections.map(s => {
-//          s.active = false
+//     const expand = (section) => {
+//         sections = sections.map(s => {
+// //          s.active = false
             
-            if (s.id === section.id) {
-                if (s.active == false) s.active = true
-                else s.active = false
-            }
-            return s
-        })
-    }
+//             if (s.id === section.id) {
+//                 if (s.active == false) s.active = true
+//                 else s.active = false
+//             }
+//             return s
+//         })
+//     }
 </script>
 
 {#if !acc}
@@ -133,30 +133,33 @@
     {/if}
 </a>
 
-
+<!-- 
 {:else}
 <a>
 {#each sections as section}
 
     <section class="card style-{styleNumber}" on:click={() => expand(section) }>
         <div class="left">
-            <h1 class="title">{title}</h1>
+            <h1 class="title">{section.post_by_id}</h1>
         </div>
         <div class="right">
                     
             <h3 class="subtext">
-                {subtext}
+                {section.post_text}
             </h3>
             
         </div>
         {#if section.active}
         <div class="slider" transition:slide>
-            {#each section.content as comment}
+                <p>comment<br></p>
+                <p>comment<br></p>
+
+         {#each section.comments as comment}
                 <p>{comment}<br></p>
             {/each}
         </div>
         {/if}
     </section>
     {/each}
-</a>
-{/if}
+</a> -->
+ {/if}

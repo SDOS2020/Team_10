@@ -4,6 +4,7 @@
 	export let hasForm = false;
 	export let onCancel = () => {};
 	export let onOkay = () => {};
+export let classId;
 
   const { close } = getContext('simple-modal');
 	
@@ -76,13 +77,14 @@
     type="text"
 	  bind:value
 	  on:keydown={e => e.which === 13 && _onOkay()} /> -->
-	  <form action="" method="POST">  
-		  <input type="PostText" bind:value={post_text} name="posttext" placeholder="Post Text" required class="input-border">
+	  <form action="/addPost/" method="POST">  
+		  <input type="postText" bind:value={post_text} name="postText" placeholder="Post Text" required class="input-border">
+		  <input type="hidden" value={classId} name="classId">
 		  <div class="buttons">
 		<button on:click={_onCancel}>
 			Cancel
 		</button>
-		<button typpe = "submit" on:click={_onOkay}>
+		<button type = "submit" on:click={_onOkay}>
 			Add
 		</button>
 		</div>

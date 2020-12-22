@@ -86,7 +86,7 @@
 		<button on:click={_onCancel}>
 			Cancel
 		</button>
-		<button typpe = "submit" on:click={_onOkay}>
+		<button type = "submit" on:click={_onOkay}>
 			Add
 		</button>
 		</div>

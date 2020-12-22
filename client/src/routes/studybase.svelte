@@ -66,15 +66,16 @@ form>* {
 	<title>Profile</title>
 </svelte:head>
 
-<!-- <script context="module">
-    import { authCheck } from '../../utils/user';
+<script context="module">
+    import { authCheck } from '../utils/user';
     export async function preload(page, session) {
         // authCheck(session, this.redirect);
         const res = await this.fetch(`profileDetails/`);
-        const postDetails = await res.json();
-        return { postDetails };
+        const userDetails = await res.json();
+        return { userDetails };
+
     }
-</script>   -->
+</script> >
 <script>
     import Card from '../components/Card.svelte';
     import TwoColumn from '../components/TwoColumn.svelte';
@@ -82,12 +83,21 @@ form>* {
     import AddPost from '../components/AddPost.svelte'
     import Modal from '../components/Modal.svelte'
     import PopUpForm from '../components/PopUpForm.svelte'
+    import Nav from '../components/Nav.svelte'
 
 
-    export let postDetails;
-    
-    console.log(postDetails)
+    export let userDetails;
+    export let classList = []
+    let i;
+    for (i = 0; i < userDetails.classes.length; i ++){
+        classList.push({
+            name: userDetails.classes[i].title,
+            uuid: userDetails.classes[i].uuid
+        })
+    }
+    // console.log(userDetails)
 </script>
+<Nav classList = {classList}/>
 
 
 

@@ -48,7 +48,7 @@
   import { getContext } from 'svelte';
 	import { fly } from 'svelte/transition';
 	
-	import PostDialog from './ClassDialog.svelte';
+	import PostDialog from './PostDialog.svelte';
 	import CloseButton from './CloseButton.svelte';
 
   const { open } = getContext('simple-modal');
@@ -58,7 +58,7 @@
 	let closing = false;
 	let closed = false;
 
-	export let link, icon, label;
+	export let link, icon, label, classId;
   
 	let post_text;
 	let status = 0;
@@ -80,8 +80,9 @@
 			{
 				message: "Enter Post Details",
 				hasForm: true,
+				classId: classId,
 				onCancel,
-				onOkay
+				onOkay,
 			},
 			{
 				closeButton: true,

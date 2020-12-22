@@ -14,14 +14,16 @@ class ClassHandler(APIView):
         data = json.loads(request.body)
         mentorClass = Class(title=data['className'], description=data['classText'], tags=data['classTopics'], mentor=user)
         mentorClass.save()
-        return Response({'data': 200})
+        return Response({'uuid': mentorClass.uuid})
     
     def get(self, request):
         user = request.user
         classes = Class.objects.filter(mentor_id=user.id).values()
-        print(classes)
+        posts =  Post.objects.all().values()
 
-        return Response({'data': classes})
+        print(classes, posts)
+
+        return Response({'classes': classes, "posts":posts})
 
 class ClassById(APIView):
     authentication_classes = [authentication.TokenAuthentication]
@@ -48,7 +50,14 @@ class PostHandler(APIView):
         new_post.save()
 
         return Response({'data': 200})
-    
+
+    def get(self, request):
+        user = request.user
+        data = json.loads(request.body)
+        post_class = Class.objects.get(uuid=data['classId'])
+        posts =  Post.objects.filter(in_class=data['classId']).values()
+        
+        return Response(posts)
 
 
 

@@ -45,9 +45,44 @@ router.post('/applyMentor/', async(req, res, next) => {
 })
 
 router.post('/createClass/', async(req, res, next) => {
+    // const { slug } = req.params;
     const response = await post('api/class/', req.body, req.session.key)
-    console.log(response)
-    const uuid = 'index'
-    res.redirect(`/class/${uuid}.svelte`)
+    // console.log(response)
+    const uuid = response['uuid']
+    res.redirect(`/class/${response['uuid']}.svelte`)
 })
+
+router.post('/addPost/', async(req, res, next) => {
+    // const { slug } = req.params;
+    const {postText, classId} = req.body;
+    const response = await post('api/class/post/', req.body, req.session.key)
+    // console.log("text: " + response['postText'])
+    // console.log("addPost " + response['classId'])
+    // const uuid = response['classId']
+    console.log(classId)
+    res.redirect(`/class/${classId}.svelte`)
+})
+
+// router.get('/classDetails/', async(req, res, next) => {
+//     const response = await get('api/class/', req.session.key)
+//     const json = await response.json();
+//     // console.log(response)
+//     return json;
+
+// })
+
+router.get('/classDetails/', async(req, res, next) => {
+    console.log(req.session.key)
+
+    const response = await fetch(`${baseUrl}api/class/`, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Token ${req.session.key}`
+        }
+    })
+    const json = await response.json()
+    return res.json(json)
+})
+
+
 export default router;

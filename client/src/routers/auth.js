@@ -107,6 +107,7 @@ router.get('/profileDetails/', async(req, res, next) => {
             'Authorization': `Token ${req.session.key}`
         }
     })
+    // console.log(response)
     const json = await response.json()
     req.session.mentor_recs = json.mentorData
     return res.json(json)
